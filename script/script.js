@@ -4,10 +4,10 @@
 
 
 // // JQuery AJAX
-// $.ajax({
-//   url: requestUrl,
-//   method: 'GET',
-// }).then(function (response) {
+// $.get(url      //{              //  No curly braces needed either as .get only needs 1 argument - the URL
+//   url: requestUrl,   //  Do not need this line if using a .get
+//   method: 'GET',     //  Do not need this line if using a .get
+// }  //  ).then(function (response) {
 //   console.log('AJAX Response \n-------------');
 //   console.log(response);
 // });
