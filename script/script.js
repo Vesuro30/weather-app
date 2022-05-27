@@ -55,24 +55,55 @@
 //  
 
 
+var userCityName = "";
+var userState = "";
 
 
 
+$(function()
+{
+  $("#searchButton").click(citySearch);
 
-
-var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Denver,us&APPID=028f3f6246d6c2500d2f614c612c9df5&units=imperial'
-
-fetch(requestUrl)
-.then(function (response) {
-  return response.json();
-  // console.log(response)
-})
-.then(function (data) {
-  // for (var i = 0; i < data.length; i++) 
-  // {
-  //   var listItem = document.createElement('li');
-  //   listItem.textContent = data[i].html_url;
-  //   repoList.appendChild(listItem);
-  // }
-  console.log(data)
 });
+
+
+
+
+
+
+
+
+
+
+//http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+
+
+
+function citySearch()
+{
+  //  This function takes the user input and trims leading and trailing spaces via trim.
+  //  An empty search entry is not acceptable and will trigger and error.
+  //  An entry that contains a comma and state designation will also not be accepted and will trigger an error.
+  //  We will test for acceptance criteria by utilizing the open weather API
+  
+  userCityName = $("#searchBar").val().trim();
+  userState = $("#stateSearch").val();
+  getWeatherData(userCityName, userState);
+};
+
+function getWeatherData(city, state)
+{
+  var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + ",us&APPID=028f3f6246d6c2500d2f614c612c9df5&units=imperial";
+  $.ajax(requestUrl, {success: function(resp)
+    {
+      $("#testing").html(JSON.stringify(resp));
+      console.log(resp);
+      
+
+    }, error: function()
+    {
+      alert("You have made an error.\n Please try again.");
+    }});
+  
+
+}
