@@ -27,7 +27,7 @@ h1{
 
 h2{
   font-size: 32px;
-  margin: 20px 0 0 0;
+  margin: 10px 0 0 0;
   padding: 5px;
 }
 
@@ -35,13 +35,18 @@ aside{
   margin: 10px;
 }
 
-aside #searchBar, aside #searchButton{
+aside #searchBar, aside #stateSearch{
   margin: 10px auto;
 }
 
+aside #searchButton{
+  margin: 20px auto 25px auto;
+}
+
 aside#searchContainer{
+  margin-top: 32px;
   border-bottom: solid 4px #333;
-  padding-bottom: 15px;
+  margin-bottom: 25px;
 
 }
 
@@ -56,9 +61,13 @@ aside#searchContainer{
 
 }
 
+#stateSearch{
+  text-align: center;
+}
+
 #searchButton{
   display: block;
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   font-size: 20px;
   border: solid 2px #092963;
@@ -94,7 +103,7 @@ aside#searchContainer{
   border-radius: 10px;
   text-align: center;
   margin: 15px auto;
-  padding: 8px 0;
+  padding: 10px;
   width: 100%;
 }
 
@@ -128,7 +137,8 @@ aside#searchContainer{
 
 #currentConditions div{
   height: 100%;
-  padding-left: 15px;
+  padding: 5px 5px 5px 15px;
+  margin: 15px;
   font-size: 24px;
 } 
 
