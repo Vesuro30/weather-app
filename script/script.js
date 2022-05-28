@@ -2,6 +2,8 @@
 //
 //  API key  028f3f6246d6c2500d2f614c612c9df5
 
+//  https://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9849&exclude=alerts,minutely,hourly&appid=028f3f6246d6c2500d2f614c612c9df5&units=imperial
+
 
 // // JQuery AJAX
 // $.get(url      //{              //  No curly braces needed either as .get only needs 1 argument - the URL
