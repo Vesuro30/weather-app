@@ -100,11 +100,11 @@
 <div id="conditionsForecast">
 
 <section id="currentConditions">
-  <div id="cityName">Denver</div>
-  <div id="temperature">Temp: </div>
-  <div id="windSpeed">Wind:</div>
-  <div id="humidity">Humidity:</div>
-  <div id="uvIndex">UV Index:</div>
+  <div id="cityName"></div>
+  <div id="temperature">Temp: <span></span>&deg;F</div>
+  <div id="windSpeed">Wind: <span></span> Miles Per Hour</div>
+  <div id="humidity">Humidity: <span></span>%</div>
+  <div id="uvIndex">UV Index: <span></span></div>
 
 </section>
 
@@ -112,44 +112,54 @@
 
 <section id="fiveDayForecast">
   <div id="day1">
+    <p id="date1"></p>
     <p id="day1City"></p>
-    <p id="day1Icon"></p>
-    <p id="day1Temperature"></p>
+    <p id="day1Icon"><img src="" alt="Weather Icon"></p>
+    <p id="day1MinTemp"></p>
+    <p id="day1MaxTemp"></p>
     <p id="day1WindSpeed"></p>
     <p id="day1Humidity"></p>
   </div>
   <div id="day2">
+    <p id="date2"></p>
     <p id="day2City"></p>
-    <p id="day2Icon"></p>
-    <p id="day2Temperature"></p>
+    <p id="day2Icon"><img src="" alt="Weather Icon"></p>
+    <p id="day2MinTemp"></p>
+    <p id="day2MaxTemp"></p>
     <p id="day2WindSpeed"></p>
     <p id="day2Humidity"></p>
   </div>
   <div id="day3">
+    <p id="date3"></p>
     <p id="day3City"></p>
-    <p id="day3Icon"></p>
-    <p id="day3Temperature"></p>
+    <p id="day3Icon"><img src="" alt="Weather Icon"></p>
+    <p id="day3MinTemp"></p>
+    <p id="day3MaxTemp"></p>
     <p id="day3WindSpeed"></p>
     <p id="day3Humidity"></p>
   </div>
   <div id="day4">
+    <p id="date4"></p>
     <p id="day4City"></p>
-    <p id="day4Icon"></p>
-    <p id="day4Temperature"></p>
+    <p id="day4Icon"><img src="" alt="Weather Icon"></p>
+    <p id="day4MinTemp"></p>
+    <p id="day4MaxTemp"></p>
     <p id="day4WindSpeed"></p>
     <p id="day4Humidity"></p>
   </div>
   <div id="day5">
+    <p id="date5"></p>
     <p id="day5City"></p>
-    <p id="day5Icon"></p>
-    <p id="day5Temperature"></p>
+    <p id="day5Icon"><img src="" alt="Weather Icon"></p>
+    <p id="day5MinTemp"></p>
+    <p id="day5MaxTemp"></p>
     <p id="day5WindSpeed"></p>
     <p id="day5Humidity"></p>
   </div>
 </section>
 
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./script/script.js"></script>
 </body>

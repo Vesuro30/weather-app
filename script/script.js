@@ -95,17 +95,67 @@ function citySearch()
 
 function getWeatherData(city, state)
 {
-  var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + ",us&APPID=028f3f6246d6c2500d2f614c612c9df5&units=imperial";
-  $.ajax(requestUrl, {success: function(resp)
-    {
-      $("#testing").html(JSON.stringify(resp));
-      console.log(resp);
+
+//call the 'Geocode' API at openweathermap
+  $.get('https://api.openweathermap.org/geo/1.0/direct?q=' + city + ',' + state + ',US&appid=028f3f6246d6c2500d2f614c612c9df5',null,function(resp)
+  {
+    if (resp.length === 0)
+      {
+      alert('No location was found in the United States that matches your entry.\r\n\r\nPlease try again.');
+      return false;
+      }
+      else
+        {
+          var selectedState = resp[0].state;
+          var selectedCity  = resp[0].name;
+          $.get('https://api.openweathermap.org/data/2.5/onecall?lat=' + resp[0].lat + '&lon=' + resp[0].lon + '&exclude=minutely,hourly,alerts&appid=028f3f6246d6c2500d2f614c612c9df5&units=imperial', null, function(resp)
+          {
+            
+            $("#cityName").html(selectedCity + ", " + selectedState + " (" + moment.unix(resp.current.dt).format("M/DD/YYYY") + ")");
+            $("#temperature span").html(resp.current.temp.toFixed(1));
+            $("#windSpeed span").html(resp.current.wind_speed);
+            $("#humidity span").html(resp.current.humidity);
+            $("#uvIndex span").html(resp.current.uvi);
+
+            for (let i = 1; i < 6; i++) 
+            {
+
+              console.log(moment.unix(resp.daily[i].dt).format("M/DD/YYYY"));
+              $("#date" + i).html(moment.unix(resp.daily[i].dt).format("M/DD/YYYY"));
+              $("#day" + i + "MinTemp").html("Minimum Temp: " + resp.daily[i].temp.min.toFixed(1) + "&deg;F");
+              $("#day" + i + "MaxTemp").html("Maximum Temp: " + resp.daily[i].temp.max.toFixed(1) + "&deg;F");
+
+              var iconUrl = "https://openweathermap.org/img/w/" + resp.daily[i].weather[0].icon + ".png";
+
+              $("#day" + i + "Icon img").attr("src", iconUrl);
+              console.log(resp);
+              $("#day" + i + "WindSpeed").html("Wind Speed: " + resp.daily[i].wind_speed + " Miles Per Hour");
+              $("#day" + i + "Humidity").html("Humidity: " + resp.daily[i].humidity + "%");
+              
+            }
+
+
+
+
+
+
+
+
+            $("#currentConditions, #fiveDayHeader, #fiveDayForecast").addClass("show");
+          });
+        }
+  });
+  // var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + ",us&APPID=028f3f6246d6c2500d2f614c612c9df5&units=imperial";
+  // $.ajax(requestUrl, {success: function(resp)
+  //   {
+  //     $("#testing").html(JSON.stringify(resp));
+  //     console.log(resp);
       
 
-    }, error: function()
-    {
-      alert("You have made an error.\n Please try again.");
-    }});
+  //   }, error: function()
+  //   {
+  //     alert("You have made an error.\n Please try again.");
+  //   }});
   
 
 }
