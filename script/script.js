@@ -128,7 +128,6 @@ function getWeatherData(city, state)
               var iconUrl = "https://openweathermap.org/img/w/" + resp.daily[i].weather[0].icon + ".png";
 
               $("#day" + i + "Icon img").attr("src", iconUrl);
-              console.log(resp);
               $("#day" + i + "WindSpeed").html("Wind Speed: " + resp.daily[i].wind_speed + " Miles Per Hour");
               $("#day" + i + "Humidity").html("Humidity: " + resp.daily[i].humidity + "%");
               
