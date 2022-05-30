@@ -110,12 +110,18 @@ function getWeatherData(city, state)
           var selectedCity  = resp[0].name;
           $.get('https://api.openweathermap.org/data/2.5/onecall?lat=' + resp[0].lat + '&lon=' + resp[0].lon + '&exclude=minutely,hourly,alerts&appid=028f3f6246d6c2500d2f614c612c9df5&units=imperial', null, function(resp)
           {
-            
-            $("#cityName").html(selectedCity + ", " + selectedState + " (" + moment.unix(resp.current.dt).format("M/DD/YYYY") + ")");
+            var currentConditionsIconUrl = "https://openweathermap.org/img/w/" + resp.current.weather[0].icon + ".png";
+
+            $("#cityName span#first").html(selectedCity + ", " + selectedState + " (" + moment.unix(resp.current.dt).format("M/DD/YYYY") + ")") + "   " + $("#cityName span#second img").attr("src", currentConditionsIconUrl);
+
+            console.log(currentConditionsIconUrl);
+            console.log(resp);
+
             $("#temperature span").html(resp.current.temp.toFixed(1));
             $("#windSpeed span").html(resp.current.wind_speed);
             $("#humidity span").html(resp.current.humidity);
             $("#uvIndex span").html(resp.current.uvi);
+            console.log(resp);
 
             for (let i = 1; i < 6; i++) 
             {
