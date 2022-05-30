@@ -128,13 +128,13 @@ function getWeatherData(city, state)
 
               console.log(moment.unix(resp.daily[i].dt).format("M/DD/YYYY"));
               $("#date" + i).html(moment.unix(resp.daily[i].dt).format("M/DD/YYYY"));
-              $("#day" + i + "MinTemp").html("Minimum Temp: " + resp.daily[i].temp.min.toFixed(1) + "&deg;F");
-              $("#day" + i + "MaxTemp").html("Maximum Temp: " + resp.daily[i].temp.max.toFixed(1) + "&deg;F");
+              $("#day" + i + "MinTemp").html("Low Temp: " + resp.daily[i].temp.min.toFixed(1) + "&deg;F");
+              $("#day" + i + "MaxTemp").html("High Temp: " + resp.daily[i].temp.max.toFixed(1) + "&deg;F");
 
               var iconUrl = "https://openweathermap.org/img/w/" + resp.daily[i].weather[0].icon + ".png";
 
               $("#day" + i + "Icon img").attr("src", iconUrl);
-              $("#day" + i + "WindSpeed").html("Wind Speed: " + resp.daily[i].wind_speed + " Miles Per Hour");
+              $("#day" + i + "WindSpeed").html("Wind Speed: " + resp.daily[i].wind_speed + " MPH");
               $("#day" + i + "Humidity").html("Humidity: " + resp.daily[i].humidity + "%");
               
             }
