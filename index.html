@@ -22,11 +22,13 @@
 <div id="asideWrapper">
 
   <aside id="searchContainer">
-    <h2>Search for a City:</h2>
-    <input type="text" name="searchBar" id="searchBar">
-    <h2>Select your state:</h2>
+    <p>To get current weather conditions,</p>
+    <p>Enter city and state info below.</p>
+    <!-- <h2>Search for a City:</h2> -->
+    <input type="text" name="searchBar" id="searchBar" placeholder="Enter a City">
+    <!-- <h2>Select a state:</h2> -->
     <select id="stateSearch">
-      <option value="0" selected>&bull;&bull; Select from list &bull;&bull;</option>
+      <option value="0" selected>&bull;&bull; Select the State &bull;&bull;</option>
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>
@@ -84,14 +86,7 @@
 
   <aside id="recentlySearched">
     <ul id="recentlySearchedList">
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
-      <li>TEST</li>
+
 
     </ul>
   </aside>
@@ -100,11 +95,12 @@
 <div id="conditionsForecast">
 
 <section id="currentConditions">
+  <h2>Current Conditions For:</h2>
   <div id="cityName"><span id="first"></span><span id="second">  <img src="" alt="Weather Icon"></span></div>
   <div id="temperature">Temp: <span></span>&deg;F</div>
   <div id="windSpeed">Wind: <span></span> MPH</div>
   <div id="humidity">Humidity: <span></span>%</div>
-  <div id="uvIndex">UV Index: <span></span></div>
+  <div id="uvIndex">UV Index: <div></div></div>
 
 </section>
 
@@ -112,7 +108,7 @@
 
 <section id="fiveDayForecast">
   <div id="day1">
-    <p id="date1"></p>
+    <p class="title" id="date1"></p>
     <p id="day1City"></p>
     <p id="day1Icon"><img src="" alt="Weather Icon"></p>
     <p id="day1MinTemp"></p>
@@ -121,7 +117,7 @@
     <p id="day1Humidity"></p>
   </div>
   <div id="day2">
-    <p id="date2"></p>
+    <p class="title" id="date2"></p>
     <p id="day2City"></p>
     <p id="day2Icon"><img src="" alt="Weather Icon"></p>
     <p id="day2MinTemp"></p>
@@ -130,7 +126,7 @@
     <p id="day2Humidity"></p>
   </div>
   <div id="day3">
-    <p id="date3"></p>
+    <p class="title" id="date3"></p>
     <p id="day3City"></p>
     <p id="day3Icon"><img src="" alt="Weather Icon"></p>
     <p id="day3MinTemp"></p>
@@ -139,7 +135,7 @@
     <p id="day3Humidity"></p>
   </div>
   <div id="day4">
-    <p id="date4"></p>
+    <p class="title" id="date4"></p>
     <p id="day4City"></p>
     <p id="day4Icon"><img src="" alt="Weather Icon"></p>
     <p id="day4MinTemp"></p>
@@ -148,7 +144,7 @@
     <p id="day4Humidity"></p>
   </div>
   <div id="day5">
-    <p id="date5"></p>
+    <p class="title" id="date5"></p>
     <p id="day5City"></p>
     <p id="day5Icon"><img src="" alt="Weather Icon"></p>
     <p id="day5MinTemp"></p>

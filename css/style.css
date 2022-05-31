@@ -35,6 +35,10 @@ aside{
   margin: 10px;
 }
 
+#searchBar{
+  text-align: center;
+}
+
 aside #searchBar, aside #stateSearch{
   margin: 10px auto;
 }
@@ -52,6 +56,12 @@ aside#searchContainer{
   border-bottom: solid 4px #333;
   margin-bottom: 25px;
 
+}
+
+aside#searchContainer p{
+  font-size: 130%;
+  font-weight: bold;
+  text-align: center;
 }
 
 aside #searchBar, aside #stateSearch{
@@ -119,6 +129,12 @@ aside #searchBar, aside #stateSearch{
   min-width: 203px;
 }
 
+#currentConditions h2{
+  margin-left: 15px;
+}
+
+currentConditions >
+
 #conditionsForecast{
   max-width: 75%;
   height: 85%;
@@ -142,9 +158,9 @@ aside #searchBar, aside #stateSearch{
   display: flex;
 }
 
-#currentConditions div{
+#currentConditions > div{
   height: 100%;
-  padding: 5px 5px 5px 15px;
+  padding: 5px 5px 15px 5px;
   margin: 15px;
   font-size: 24px;
 } 
@@ -153,6 +169,12 @@ aside #searchBar, aside #stateSearch{
 #currentConditions div#cityName{
   font-size: 40px;
   font-weight: bold;
+}
+
+#uvIndex div{
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 7px;
 }
 
 #cityName{
@@ -182,7 +204,7 @@ aside #searchBar, aside #stateSearch{
 }
 
 #fiveDayForecast div{
-  min-width: 200px;
+  min-width: 215px;
   border: 1px solid black;
   background-color: #888;
   flex: 1;
@@ -191,3 +213,7 @@ aside #searchBar, aside #stateSearch{
   padding: 15px;
 }
 
+.title{
+  font-size: 120%;
+  font-weight: bold;
+}
