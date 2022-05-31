@@ -1,30 +1,6 @@
-//
-//
-//  API key  028f3f6246d6c2500d2f614c612c9df5
+
 
 //  https://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9849&exclude=alerts,minutely,hourly&appid=028f3f6246d6c2500d2f614c612c9df5&units=imperial
-
-
-// // JQuery AJAX
-// $.get(url      //{              //  No curly braces needed either as .get only needs 1 argument - the URL
-//   url: requestUrl,   //  Do not need this line if using a .get
-//   method: 'GET',     //  Do not need this line if using a .get
-// }  //  ).then(function (response) {
-//   console.log('AJAX Response \n-------------');
-//   console.log(response);
-// });
-
-// // Browser Fetch Method
-// fetch(requestUrl)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log('Fetch Response \n-------------');
-//     console.log(data);
-//   });
-
-
 
 //  This script uses the OpenWeather API to receive and generate weather conditions in 
 //  different cities as defined by the user.  
@@ -54,7 +30,7 @@
 //  This page will also display the 5 day forecast for the city that was searched
 //  for in the form of small 'cards' showing the date, icon representing the forecasted
 //  weather conditions, temperature, wind speed, humidity and UV index.
-//  
+  
 
 var maxRecents = 10;
 var userCityName = "";
@@ -86,17 +62,6 @@ $(function()
     getWeatherData(cityState[0], cityState[1], 1);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -208,64 +173,42 @@ function getWeatherData(city, state, mode)
                 $("#recentlySearchedList").append("<li>" + listSplit[0] + ", " + listSplit[1] + "</li>");
               }
             }
-             else 
-              {
-                //  Duplicate city (already on list), do nothing.
-
-              }
 
 
-
-
-
-              // // //  Check to see if the entire array has been checked for duplicates 
-              // // //  AND if there are the maximum number of results in array
-              // // if(i == recentArray.length && recentArray.length == maxRecents)
-              // // {
-              // //   //  Check to see if there are the maximum number of entries in the recentArray
-              // //   if(recentArray.length == maxRecents)
-              // //   {
-              // //     //  Yes - remove last entry in the array
-              // //     recentArray.shift();
-              // //   }
-              // //   // Add the searched city/state to the recentArray
-              // //   recentArray.push(citystate);
-              // //   //  Split each element in the array at ; leaving us with city, state
-              // //   var listSplit = citystate.split(";");
-                
-              // //   //  Generate "button" on recently searched list
-              // //    $("#recentlySearchedList").append("<li>" + listSplit[0] + ", " + listSplit[1] + "</li>");
-
-              // }
-   
             }
             // //  install results to local storage
           localStorage.setItem("recentlySearched", JSON.stringify(recentArray));
-          
 
-          
-
-
-
-
+            //  Make call to API to receive response
           $.get('https://api.openweathermap.org/data/2.5/onecall?lat=' + resp[0].lat + '&lon=' + resp[0].lon + '&exclude=minutely,hourly,alerts&appid=028f3f6246d6c2500d2f614c612c9df5&units=imperial', null, function(resp)
           {
+            //  Current weather conditions icon URL
             var currentConditionsIconUrl = "https://openweathermap.org/img/w/" + resp.current.weather[0].icon + ".png";
-
+            
+            //  Generate city, state and date and icon for the current conditions div
             $("#cityName span#first").html(selectedCity + ", " + selectedState + " (" + moment.unix(resp.current.dt).format("dddd, MMMM Do, YYYY") + ")") + "   " + $("#cityName span#second img").attr("src", currentConditionsIconUrl);
 
-
+            //  Generate and install current temperature in current conditions div
             $("#temperature span").html(resp.current.temp.toFixed(1));
+            //  Generate and install wind speed in current conditions div
             $("#windSpeed span").html(resp.current.wind_speed);
+            //  Generate and install humidity in current conditions div
             $("#humidity span").html(resp.current.humidity);
+            //  Generate and install UV Index in current conditions div
             $("#uvIndex div").html(resp.current.uvi);
+            //  Background color for low exposure level UV Index
             if(resp.current.uvi <= 2){uviColor = "#20f209";}
+            //  Background color for moderate exposure level UV Index
             else if(resp.current.uvi > 2 && resp.current.uvi <= 5){uviColor = "#e5ed09";}
+            //  Background color for high exposure level UV Index
             else if(resp.current.uvi > 5 && resp.current.uvi <= 7){uviColor = "#f9912f";}
+            //  Background color for very high exposure level UV Index
             else {uviColor = "#ff0000";}
             $("#uvIndex div").css({"background-color" : uviColor});
             console.log(resp);
 
+
+            //  Loop to install weather conditions for the 5-day forecast
             for (let i = 1; i < 6; i++) 
             {
 
@@ -281,7 +224,7 @@ function getWeatherData(city, state, mode)
               
             }
 
-
+            //  Display current conditions, five day header and five day forecast upon request of weather data
             $("#currentConditions, #fiveDayHeader, #fiveDayForecast").addClass("show");
           });
         }

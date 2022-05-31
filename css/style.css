@@ -1,3 +1,6 @@
+
+/* Universal styles */
+
 *{
   box-sizing: border-box;
 }
@@ -31,6 +34,7 @@ h2{
   padding: 5px;
 }
 
+/* Aside (search bar and recently searched) styles */
 aside{
   margin: 10px;
 }
@@ -129,11 +133,15 @@ aside #searchBar, aside #stateSearch{
   min-width: 203px;
 }
 
+/* Current conditions styles */
+.title{
+  font-size: 120%;
+  font-weight: bold;
+}
+
 #currentConditions h2{
   margin-left: 15px;
 }
-
-currentConditions >
 
 #conditionsForecast{
   max-width: 75%;
@@ -181,6 +189,7 @@ currentConditions >
   padding-top: 10px;
 }
 
+/* 5 day forecast styles */
 #fiveDayHeader{
   margin: 10px 20px;
   display: none;
@@ -213,7 +222,3 @@ currentConditions >
   padding: 15px;
 }
 
-.title{
-  font-size: 120%;
-  font-weight: bold;
-}
