@@ -118,6 +118,11 @@ function getWeatherData(city, state, mode)
           {
             //  Nothing in recents, install selected city and selected state in array
             recentArray[0] = selectedCity + ";" + selectedState;
+            $("#recentlySearchedList").click(function(e)
+            {
+              var cityState = e.target.innerHTML.split(", ");
+              getWeatherData(cityState[0], cityState[1], 1);
+            });
             $("#recentlySearchedList").append("<li>" + selectedCity + ", " + selectedState + "</li>");
           }
           else
